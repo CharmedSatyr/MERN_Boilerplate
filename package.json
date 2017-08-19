@@ -1,0 +1,52 @@
+{
+  "name": "mern_boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate MERN development structure that uses Webpack, Babel CLI, nodemon, and Browsersync to enable isomorphic, ES6 MERN projects that autorefresh in the browser on change.",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "npm-run-all --parallel build:client build:server watch:dist browser-sync",
+    "watch:dist": "nodemon ./dist/server.js --watch ./dist",
+    "build:client": "webpack --watch --config webpack.client.config.js",
+    "build:server": "babel src/server.jsx -wo dist/server.js  --presets env",
+    "browser-sync": "browser-sync start --url http://localhost:8080 --files='dist/client/index.html'",
+    "build": "webpack --config webpack.client.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CharmedSatyr/MERN_Boilerplate.git"
+  },
+  "author": "CharmedSatyr",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/CharmedSatyr/MERN_Boilerplate/issues"
+  },
+  "homepage": "https://github.com/CharmedSatyr/MERN_Boilerplate#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.7",
+    "path": "^0.12.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "browser-sync": "^2.18.13",
+    "css-loader": "^0.28.5",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "file-loader": "^0.11.2",
+    "html-webpack-plugin": "^2.30.1",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "url-loader": "^0.5.9",
+    "watch-ignore-webpack-plugin": "^1.0.0",
+    "webpack": "^3.5.5"
+  }
+}
